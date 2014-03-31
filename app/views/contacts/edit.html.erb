@@ -1,0 +1,22 @@
+<div class="contacts_list">
+  <h1>Edit Contact</h1>
+
+  <% if @contact.errors.any? %>
+    <h3>Please fix these errors:</h3>
+    <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <form action="/contacts/<%= @contact.id %>" method="post">
+    <input name="_method" type="hidden" value="patch">
+
+    <div class="form-group">
+      <input  class="form-control my_form" id="contact_name" name="name" type="text" placeholder="name" value="<%= @contact.name %>">
+      <input  class="form-control my_form" id="contact_phone" name="phone" type="text" placeholder="phone" value="<%= @contact.phone %>">
+      <input  class="form-control my_form" id="contact_email" name="email" type="text" placeholder="email" value="<%= @contact.email %>">
+      <button type="submit" class="btn btn-success my_form">Update Contact</button>
+    </div>
+  </form>

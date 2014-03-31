@@ -1,0 +1,21 @@
+<div class="contacts_list">
+  <h1>New Contact</h1>
+
+  <% if @contact.errors.any? %>
+    <h3>Please fix these errors:</h3>
+    <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <form action="/contacts" method="post">
+    <div class="form-group">
+      <input  class="form-control my_form" id="contact_name" name="name" type="text" placeholder="name">
+      <input  class="form-control my_form" id="contact_phone" name="phone" type="text" placeholder="phone">
+      <input  class="form-control my_form" id="contact_email" name="email" type="text" placeholder="email">
+      <button type="submit" class="btn btn-success my_form">Create Contact</button>
+  </div>
+  </form>
+</div>
